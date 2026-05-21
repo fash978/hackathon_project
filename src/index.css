@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@media print {
+  /* Hide non-reporting interactive segments */
+  button,
+  select,
+  form,
+  input,
+  textarea,
+  iframe,
+  header,
+  footer,
+  .no-print,
+  #csv-ledger-importer-container,
+  #scenario-simulator-card,
+  #btn-trigger-add-transaction,
+  #add-transaction-form,
+  [title="Remove Node"],
+  [title="Reset Simulated State"],
+  [title="Choose forecasting and ledger currency"] {
+    display: none !important;
+  }
+
+  /* Force white paper styling with intense charcoal details */
+  html, body, main {
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+    color: #111827 !important;
+    font-family: "Inter", sans-serif !important;
+  }
+
+  /* Structural border configurations */
+  div, section, table, tr, th, td {
+    border-color: #e5e7eb !important;
+    background-color: transparent !important;
+    color: #1f2937 !important;
+  }
+
+  /* Standard text colors translated */
+  .text-white, .text-zinc-100, .text-zinc-200, .text-zinc-350, .text-zinc-300 {
+    color: #111827 !important;
+  }
+  .text-zinc-400, .text-zinc-500, .text-zinc-550, .text-zinc-650 {
+    color: #4b5563 !important;
+  }
+
+  /* Performance statistics adjustments for print ink */
+  .text-[#10b981], .text-emerald-400, .text-teal-400 {
+    color: #047857 !important; /* Rich readable emerald forest green */
+    font-weight: 700 !important;
+  }
+  .bg-\[\#10b981\]\/15, .bg-\[\#10b981\]\/10 {
+    background-color: #f0fdf4 !important;
+    border-color: #bbf7d0 !important;
+  }
+  .text-rose-400, .text-rose-450 {
+    color: #b91c1c !important; /* Highly visible critical red */
+    font-weight: 700 !important;
+  }
+  .bg-rose-500\/10 {
+    background-color: #fef2f2 !important;
+    border-color: #fecaca !important;
+  }
+  .text-indigo-400 {
+    color: #4338ca !important;
+  }
+  .bg-indigo-500\/15 {
+    background-color: #e0e7ff !important;
+    border-color: #c7d2fe !important;
+  }
+
+  /* Section grid spacing on output page */
+  .grid {
+    display: block !important;
+  }
+
+  .grid-cols-2, .grid-cols-3, .grid-cols-4, .grid-cols-12 {
+    display: flex !important;
+    flex-wrap: wrap !important;
+  }
+
+  /* Section cards override */
+  #cashflow-projection-chart-card,
+  #rolling-forecast-chronology-card,
+  #smart-invoice-credit-estimator-card,
+  #ai-advisor-coach-card,
+  #ledger-manager-card {
+    background-color: #ffffff !important;
+    border: 1px solid #d1d5db !important;
+    padding: 16px !important;
+    border-radius: 8px !important;
+    box-shadow: none !important;
+    page-break-inside: avoid !important;
+    margin-bottom: 24px !important;
+    width: 100% !important;
+  }
+
+  /* 30-day forecaster layout inside print columns */
+  #rolling-forecast-chronology-card .grid {
+    display: flex !important;
+    gap: 16px !important;
+  }
+  #rolling-forecast-chronology-card .grid > div {
+    flex: 1 !important;
+    min-width: 200px !important;
+    border: 1px solid #e1e3e6 !important;
+    padding: 12px !important;
+  }
+
+  /* Expand scrolling areas to full size of content on print page */
+  #ai-advisor-coach-card {
+    height: auto !important;
+    min-height: auto !important;
+  }
+  #ai-advisor-coach-card .flex-1, 
+  #ai-advisor-coach-card .overflow-y-auto {
+    height: auto !important;
+    overflow: visible !important;
+    max-height: none !important;
+  }
+
+  #ledger-manager-card .overflow-x-auto {
+    overflow: visible !important;
+    max-height: none !important;
+  }
+
+  /* Hide the Action columns in the transaction table to present a clean ledger book */
+  td:last-child, th:last-child {
+    display: none !important;
+  }
+
+  /* Force print page sizes and spacing standards */
+  @page {
+    size: A4 portrait;
+    margin: 15mm;
+  }
+
+  body {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+}
+
+/* DYNAMIC LIGHT MODE STYLESHEET OVERRIDES */
+.light-theme {
+  background-color: #f8fafc !important; /* light slate background */
+  color: #0f172a !important; /* slate-900 */
+}
+
+.light-theme select {
+  color: #000000 !important;
+}
+
+.light-theme input,
+.light-theme textarea {
+  color: #0f172a !important;
+}
+
+.light-theme .text-white,
+.light-theme .text-\[\#E4E4E7\],
+.light-theme .text-zinc-100,
+.light-theme .text-zinc-200,
+.light-theme .text-zinc-350,
+.light-theme .bg-\[\#0A0B0D\]\/10,
+.light-theme .text-zinc-300 {
+  color: #0f172a !important;
+}
+
+.light-theme .text-zinc-400,
+.light-theme .text-zinc-450,
+.light-theme .text-zinc-500,
+.light-theme .text-zinc-555,
+.light-theme .text-zinc-550,
+.light-theme .text-zinc-650 {
+  color: #475569 !important; /* slate-600 */
+}
+
+.light-theme header,
+.light-theme .bg-\[\#141519\],
+.light-theme .bg-\[\#0F1014\],
+.light-theme .bg-\[\#111216\],
+.light-theme .bg-\[\#1C1D21\],
+.light-theme .bg-\[\#0E0F12\],
+.light-theme .bg-\[\#18191D\],
+.light-theme .bg-zinc-900,
+.light-theme .bg-zinc-950,
+.light-theme #cashflow-projection-chart-card,
+.light-theme #rolling-forecast-chronology-card,
+.light-theme #smart-invoice-credit-estimator-card,
+.light-theme #csv-ledger-importer-container,
+.light-theme #ai-scenario-simulation-card,
+.light-theme #ai-advisor-coach-card,
+.light-theme #ledger-manager-card {
+  background-color: #ffffff !important;
+  border-color: #cbd5e1 !important; /* slate-300 for clean subtle borders */
+}
+
+.light-theme .border-\[\#26272B\],
+.light-theme .border-b-\[\#26272B\],
+.light-theme .border-\[\#2D2E32\],
+.light-theme .border-\[\#1F2024\],
+.light-theme .border-\[\#2F3037\],
+.light-theme .border-zinc-800 {
+  border-color: #cbd5e1 !important; /* slate-300 */
+}
+
+.light-theme .bg-\[\#0A0B0D\],
+.light-theme input,
+.light-theme select,
+.light-theme textarea,
+.light-theme option {
+  background-color: #f1f5f9 !important; /* slate-100 */
+  border-color: #cbd5e1 !important; /* slate-300 */
+  color: #0f172a !important;
+}
+
+.light-theme .hover\:bg-\[\#1C1D21\]:hover,
+.light-theme .hover\:bg-zinc-900:hover,
+.light-theme .hover\:bg-zinc-855:hover,
+.light-theme .hover\:bg-zinc-850:hover {
+  background-color: #f1f5f9 !important;
+}
+
+.light-theme .recharts-default-tooltip {
+  background-color: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  color: #0f172a !important;
+}
+
+.light-theme select option {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+}
+
+.light-theme .recharts-cartesian-grid-horizontal line,
+.light-theme .recharts-cartesian-grid-vertical line {
+  stroke: #cbd5e1 !important;
+}
+
+.light-theme .recharts-text {
+  fill: #475569 !important;
+}
+

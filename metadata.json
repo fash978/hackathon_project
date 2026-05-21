@@ -1,0 +1,6 @@
+{
+  "name": "Kashflow",
+  "description": "An AI-powered cashflow predictor and scenario simulator for SMEs, analyzing transactions, modeling future scenarios, and providing strategic advisory using Google Gemini 3.5 Flash.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
